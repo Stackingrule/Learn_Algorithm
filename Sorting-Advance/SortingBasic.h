@@ -32,6 +32,21 @@ void insertionSort(T arr[], int n) {
 	}
 }
 
+template<typename T>
+void bubbleSort(T arr[], int n) {
+	bool sorted = false;
+	while(!sorted) {
+		sorted = true;
+		for(int i = 1; i < n; i++) {
+			if(arr[i - 1] > arr[i]) {
+				swap(arr[i - 1], arr[i]);
+				sorted = false;
+			}
+		}
+		n--;
+	}
+}
+
 
 #endif  //SORTING_BASIC_H
 
