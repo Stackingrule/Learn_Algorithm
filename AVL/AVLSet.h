@@ -34,8 +34,5 @@ public:
 		avlTree->remove(e);
 	}
 
-
-
-
 };
 #endif  //AVL_AVLSET_H
