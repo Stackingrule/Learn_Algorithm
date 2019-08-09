@@ -2,6 +2,7 @@
 #define HEAP_H
 
 #include <cassert>
+using namespace std;
 
 template<typename T>
 class MaxHeap{
@@ -11,7 +12,7 @@ private:
 	int capacity;
 
 	void shiftUp(int k) {
-		while(data[k/2] < data[k]) {
+		while(k > 1 && data[k/2] < data[k]) {
 			swap(data[k/2], data[k]);
 			k /= 2;
 		}
@@ -21,7 +22,7 @@ private:
 		while(2*k <= count) {
 			int j = 2*k;
 			if( j + 1 <= count && data[j+1] > data[j] )
-				j += 1;
+				j ++;
 		    if(data[k] >= data[j] )
 			    break;
 	        swap(data[k], data[j] );
@@ -37,7 +38,7 @@ public:
 	}
 
 	MaxHeap(T arr[], int n){
-        data = new Item[n+1];
+        data = new T[n+1];
         capacity = n;
 
         for( int i = 0 ; i < n ; i++ )
@@ -57,13 +58,13 @@ public:
 	}
 
 	bool empty() {
-		retu count == 0;
+		return count == 0;
 	}
 
-	void insert(T item) {
-		data[count + 1] = item;
+	void insert(T e) {
+		data[count + 1] = e;
+		shiftUp(count + 1);
 		count++;
-		shiftUp(count);
 	}
 
 	T delMax() {
