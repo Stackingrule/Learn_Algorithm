@@ -8,7 +8,6 @@ class LinkedList
 {
 private:
 	ListNode<T>* head;
-	ListNode<T>* dummyHead;
 	int _size;
 
 public:
@@ -25,6 +24,17 @@ public:
 
 	bool empty() {
 		return _size == 0;
+	}
+
+	bool contains(T e) {
+	    ListNode<T> *cur = head;
+	    for (int i = 0; i < size; ++i) {
+	        cur = cur->next;
+	        if (cur->e == e) {
+	            return true;
+	        }
+	    }
+	    return false;
 	}
 
 	void set(int index, T e) {
@@ -125,9 +135,6 @@ public:
 		}
 		return -1;
 	}
-
-
-	
 };
 
 #endif  //LINKEDLIST_LINKEDLIST_H

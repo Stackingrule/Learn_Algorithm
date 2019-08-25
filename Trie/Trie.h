@@ -54,12 +54,6 @@ public:
 		}
         return node->isWord;
 	}
-
-
-
-
 };
-
-
 
 #endif  //TRIE_TRIE_H
